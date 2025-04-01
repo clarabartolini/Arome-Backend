@@ -1,0 +1,11 @@
+### GET request to example server
+POST http://localhost:8080/api/clientes/adicionar
+{
+    "nome": "John Doe",
+    "email": "johndoe@example.com",
+    "cpf": "12345678901",
+    "senha": "123456",
+    "data_nascimento": "1990-01-01"
+
+}
+###
