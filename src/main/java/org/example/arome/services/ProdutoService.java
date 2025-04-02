@@ -26,10 +26,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public String removeProduto(String nome) {
-        Optional<Produto> produto = produtoRepository.findByNome(nome);
+    public String removeProduto(int id) {
+        Optional<Produto> produto = produtoRepository.findById(id);
         if (produto.isPresent()) {
-            produtoRepository.deleteByNome(nome); // Executa a exclusão sem retorno
+            produtoRepository.deleteById(id); // Executa a exclusão sem retorno
             return "Produto removido com sucesso!";
         }
         return "Produto não encontrado!";

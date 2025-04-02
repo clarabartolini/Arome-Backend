@@ -46,9 +46,9 @@ public class ProdutoController {
 
 
     @Operation(summary = "Remover produto", description = "Endpoint para remover um produto pelo nome.")
-    @DeleteMapping("/{nome}")
-    public ResponseEntity<String> removerProduto(@PathVariable String nome) {
-        String resposta = produtoService.removeProduto(nome);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> removerProduto(@PathVariable int id) {
+        String resposta = produtoService.removeProduto(id);
         if (resposta.equals("Produto não encontrado!")) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resposta); // 404 Not Found
         }
