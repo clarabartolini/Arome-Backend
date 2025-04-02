@@ -12,6 +12,7 @@ import org.example.arome.services.ClienteService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/clientes")
 @Tag(name = "Cliente Controller", description = "Endpoints para gerenciar clientes")
 public class ClienteController {
