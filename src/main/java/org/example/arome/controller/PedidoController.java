@@ -33,5 +33,5 @@ public class PedidoController {
         Pedido pedido = pedidoRepository.findLastOrder();
         return ResponseEntity.ok(pedido);
     }
-    
+
 }

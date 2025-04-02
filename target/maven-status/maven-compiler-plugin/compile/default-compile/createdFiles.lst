@@ -1,0 +1,13 @@
+org\example\arome\AromeApplication.class
+org\example\arome\repositories\ProdutoRepository.class
+org\example\arome\models\Pedido.class
+org\example\arome\controller\ProdutoController.class
+org\example\arome\services\ClienteService.class
+org\example\arome\services\ProdutoService.class
+org\example\arome\repositories\ClienteRepository.class
+org\example\arome\models\Produto.class
+org\example\arome\controller\ClienteController.class
+org\example\arome\models\Cliente.class
+org\example\arome\repositories\PedidoRepository.class
+org\example\arome\controller\PedidoController.class
+org\example\arome\services\PedidoService.class
