@@ -6,6 +6,7 @@ import org.example.arome.models.Pedido;
 import org.example.arome.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class PedidoController {
     private PedidoRepository pedidoRepository;
 
     @Operation(summary = "Retorna todos os pedidos")
-    @RequestMapping("/listar")
+    @GetMapping("/listar")
     public ResponseEntity<List<Pedido>> listar() {
         List<Pedido> pedidos = pedidoRepository.findAll();
         return ResponseEntity.ok(pedidos);
@@ -28,7 +29,7 @@ public class PedidoController {
     }
 
     @Operation(summary = "Retorna o último pedido ")
-    @RequestMapping("/ultimoPedido")
+    @GetMapping("/ultimoPedido")
     public ResponseEntity<Pedido> ultimoPedido() {
         Pedido pedido = pedidoRepository.findLastOrder();
         return ResponseEntity.ok(pedido);
