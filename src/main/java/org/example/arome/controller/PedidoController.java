@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/pedidos")
 @Tag(name = "Pedidos", description = "Endpoints para gerenciar pedidos")
 public class PedidoController {

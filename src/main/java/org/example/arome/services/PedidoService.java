@@ -24,7 +24,7 @@ public class PedidoService {
     public void savePedido(Pedido pedido) {
         pedidoRepository.save(pedido);
     }
-    public Pedido findPedidoById(int id) {
+    public Pedido findById(int id) {
         return pedidoRepository.findPedidoById(id);
 
     }
