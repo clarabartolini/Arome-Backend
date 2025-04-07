@@ -60,4 +60,25 @@ public class ClienteController {
         }
         return ResponseEntity.ok(cliente); // 200 OK
     }
+
+    @Operation(summary = "Buscar por e-mail", description = "Endpoint para buscar um cliente pelo e-mail.")
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Cliente> ClienteByEmail(@PathVariable String email) {
+        Cliente cliente = clienteService.getClienteByEmail(email);
+        if (cliente == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found
+        }
+        return ResponseEntity.ok(cliente); // 200 OK
+    }
+
+    // Deleta um cliente pelo ID
+    @Operation(summary = "Deletar cliente", description = "Endpoint para deletar um cliente pelo ID.")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCliente(@PathVariable Integer id) {
+        String resposta = clienteService.deleteCliente(id);
+        if (resposta == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found
+        }
+        return ResponseEntity.ok(resposta);
+    }
 }

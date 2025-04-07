@@ -51,44 +51,11 @@ public class PedidoController {
         Pedido novoPedido = pedidoRepository.save(pedido);
         return ResponseEntity.ok(novoPedido);
     }
-
-    @Operation(summary = "Gera a nota fiscal de um pedido")
-    @GetMapping(value = "/nota-fiscal/gerar/{idPedido}", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<byte[]> gerarNotaFiscal(@PathVariable Long idPedido) {
-        try {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            PdfWriter writer = new PdfWriter(outputStream);
-            PdfDocument pdf = new PdfDocument(writer);
-            Document document = new Document(pdf);
-
-            String imageUrl = "https://github.com/isabelaneu/Arome/blob/main/imagens/image-removebg-preview%20(2).png?raw=true";
-            ImageData imageData = ImageDataFactory.create(new URL(imageUrl));
-            Image logo = new Image(imageData);
-            document.add(logo);
-
-            document.add(new Paragraph("Arome").setBold());
-            document.add(new Paragraph("Cliente:")); //pegar info do cliente q fez o pedido
-            document.add(new Paragraph("Forma de Pagamento:")); //pegar info do pagto do pedido
-            document.add(new Paragraph("Cartão Utilizado:")); //pegar info do cartao utilizado
-            document.add(new Paragraph("Itens do Pedido:"));
-
-            List<String> itens = List.of("Exemplo de item 1", "Exemplo de item 2"); //pegar os itens do pedido
-            for (String item : itens) {
-                document.add(new Paragraph(item));
-            }
-
-            document.add(new Paragraph(""));
-            document.close();
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=nota_fiscal.pdf");
-
-            return ResponseEntity.ok()
-                    .headers(headers)
-                    .contentType(MediaType.APPLICATION_PDF)
-                    .body(outputStream.toByteArray());
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
-        }
+    @Operation(summary = "Busca um pedido por ID")
+    @GetMapping("/buscar/{idPedido}")
+    public ResponseEntity<Pedido> buscar(@PathVariable int idPedido) {
+        Pedido pedido = pedidoRepository.findById(idPedido).orElse(null);
+        return ResponseEntity.ok(pedido);
     }
-}
+
+        }

@@ -50,8 +50,12 @@ public class ClienteService {
         return clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
     }
-    public void deleteCliente(Integer id) {
+    public Cliente getClienteByEmail(String email) {
+        return clienteRepository.findByEmail(email);
+    }
+    public String deleteCliente(Integer id) {
         clienteRepository.deleteById(id);
+        return null;
     }
 
 }

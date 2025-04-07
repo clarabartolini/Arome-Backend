@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 
@@ -22,5 +23,9 @@ public class PedidoService {
     }
     public void savePedido(Pedido pedido) {
         pedidoRepository.save(pedido);
+    }
+    public Pedido findPedidoById(int id) {
+        return pedidoRepository.findPedidoById(id);
+
     }
 }
