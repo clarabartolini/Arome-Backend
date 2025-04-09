@@ -19,12 +19,6 @@ public class Pedido {
     private int id_produto;
     @Schema(description = "Valor total do pedido", example = "100.00")
     private double valor_total;
-    @Schema(description = "ID do pagamento", example = "1")
-    private int id_pagto;
-    @Schema(description = "ID do cartão de crédito", example = "1")
-    private int id_cartao;
-    @Schema(description = "ID do endereço de entrega", example = "1")
-    private int id_endereco;
     @Schema(description = "Status do pedido", example = "false")
     private boolean pedido_feito;
 
@@ -61,30 +55,6 @@ public class Pedido {
 
     public void setValor_total(double valor_total) {
         this.valor_total = valor_total;
-    }
-
-    public int getId_pagto() {
-        return id_pagto;
-    }
-
-    public void setId_pagto(int id_pagto) {
-        this.id_pagto = id_pagto;
-    }
-
-    public int getId_cartao() {
-        return id_cartao;
-    }
-
-    public void setId_cartao(int id_cartao) {
-        this.id_cartao = id_cartao;
-    }
-
-    public int getId_endereco() {
-        return id_endereco;
-    }
-
-    public void setId_endereco(int id_endereco) {
-        this.id_endereco = id_endereco;
     }
 
     public boolean isPedido_feito() {
