@@ -37,7 +37,7 @@ public class PedidoController {
 
     @Operation(summary = "Adiciona um pedido")
     @PostMapping("/adicionar")
-    public ResponseEntity<Pedido> adicionar(@Valid @RequestBody Pedido pedido) {
+    public ResponseEntity<Pedido> adicionar(@RequestBody Pedido pedido) {
         Pedido novoPedido = pedidoRepository.save(pedido);
         return ResponseEntity.ok(novoPedido);
     }
